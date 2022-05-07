@@ -103,7 +103,13 @@ std::string getColorConfigFilePath()
     configOCIOFilePath.append("/share/aliceVision/config.ocio");
 
     if (!fs::exists(configOCIOFilePath))
+    {
         ALICEVISION_THROW_ERROR("OCIO configuration file: '" << configOCIOFilePath << "' does not exist.");
+    }
+    else
+    {
+        ALICEVISION_LOG_TRACE("OCIO configuration file: '" << configOCIOFilePath << "' found.");
+    }
 
     return configOCIOFilePath;
 }
